@@ -1,32 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Inject Components
+    const components = [
+        { id: 'header-root', content: HeaderComponent },
+        { id: 'hero-root', content: HeroComponent },
+        { id: 'profile-root', content: ProfileComponent },
+        { id: 'vision-root', content: VisionMissionComponent },
+        { id: 'gallery-root', content: GalleryComponent },
+        { id: 'news-root', content: NewsComponent },
+        { id: 'footer-root', content: FooterComponent }
+    ];
+
+    components.forEach(component => {
+        const root = document.getElementById(component.id);
+        if (root) {
+            root.innerHTML = component.content;
+        }
+    });
+
+    // Initialize App Logic (after components are rendered)
+    initializeApp();
+});
+
+function initializeApp() {
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
     const links = document.querySelectorAll('.nav-links li');
 
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        
-        // Animate Links
-        links.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = '';
-            } else {
-                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-            }
-        });
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
 
-        // Burger Animation
-        menuToggle.classList.toggle('toggle');
-    });
+            // Animate Links
+            links.forEach((link, index) => {
+                if (link.style.animation) {
+                    link.style.animation = '';
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                }
+            });
+
+            // Burger Animation
+            menuToggle.classList.toggle('toggle');
+        });
+    }
 
     // Close mobile menu when clicking a link
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuToggle.classList.remove('toggle');
+    if (links) {
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                if (menuToggle) menuToggle.classList.remove('toggle');
+            });
         });
-    });
+    }
 
     // Scroll Animations (Intersection Observer)
     const revealElements = document.querySelectorAll('.reveal');
@@ -50,14 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Sticky Header Effect
     const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
-            header.style.padding = '0';
-        } else {
-            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
-        }
-    });
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+                header.style.padding = '0';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            }
+        });
+    }
 
     // Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -95,4 +124,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (slides.length > 0) {
         setInterval(nextSlide, slideInterval);
     }
-});
+}
