@@ -224,15 +224,22 @@ header {
     color: var(--white);
     border-radius: 50px;
     font-weight: 600;
+    font-weight: 600;
+    margin-top: 10px;
+    display: inline-block;
     transition: var(--transition);
-    border: none;
-    cursor: pointer;
 }
 
 .btn:hover {
-    background-color: #e09612;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(245, 166, 35, 0.4);
+    background-color: white;
+    color: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+.read-more:hover {
+    color: var(--secondary-color);
+    transform: translateX(5px);
+    /* Slide right effect */
 }
 
 /* Profile Section */
@@ -536,6 +543,18 @@ footer {
 
     .profile-content {
         flex-direction: column;
+        text-align: center;
+        /* Center text on mobile */
+    }
+
+    .profile-image {
+        margin-top: 30px;
+        width: 100%;
+        /* Full width image */
+    }
+
+    .profile-text {
+        width: 100%;
     }
 
     .news-grid {
