@@ -12,9 +12,7 @@ const NewsComponent = `
                     <span class="news-date">27 November 2024</span>
                     <h4 class="news-title">Sosialisasi Kurikulum Merdeka di Jakarta Utara</h4>
                     <p>Suku Dinas Pendidikan Wilayah II mengadakan sosialisasi penerapan Kurikulum Merdeka...</p>
-                    <a href="#"
-                        style="color: var(--primary-color); font-weight: 600; margin-top: 10px; display: inline-block;">Baca
-                        Selengkapnya &rarr;</a>
+                    <a href="#" class="read-more">Baca Selengkapnya &rarr;</a>
                 </div>
             </article>
             <article class="news-card">
