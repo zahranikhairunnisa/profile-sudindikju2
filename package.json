@@ -2,11 +2,12 @@
   "name": "sudin-pendidikan-ju2-website",
   "version": "1.0.0",
   "description": "Website Suku Dinas Pendidikan Wilayah II Jakarta Utara",
-  "dev": "vite",
-  "build": "echo 'No build step required'",
-  "preview": "vite preview"
-},
-"devDependencies": {
-  "vite": "^5.0.0"
-}
+  "scripts": {
+    "dev": "vite",
+    "build": "echo 'No build step required'",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
 }
